@@ -19,6 +19,9 @@ app.use(express.json());
 const analyticsRoutes = require('./routes/analytics.route');
 app.use('/api/analytics', analyticsRoutes);
 
+app.get("/",(req,res)=>{
+    res.send("server is running!");
+})
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
