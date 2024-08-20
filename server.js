@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -14,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 // Middleware
 app.use(express.json());
-
+app.use(cors());
 // Import routes
 const analyticsRoutes = require('./routes/analytics.route');
 app.use('/api/analytics', analyticsRoutes);
